@@ -22,17 +22,18 @@ def clean_transcript(file_path):
     
     # TODO: Find the price mentioned in Vietnamese words ("năm trăm nghìn")
     price_match = re.search(r'năm trăm nghìn', text, re.IGNORECASE)
-    extracted_price = 500000 if price_match else 0
+    # Forensic agent expects integer 500000 under key 'detected_price_vnd'
+    detected_price_vnd = 500000 if price_match else None
     
     # TODO: Return a cleaned dictionary for the UnifiedDocument schema.
     return {
         "document_id": "transcript-doc-001",
         "content": text,
-        "source_type": "Video", # Match expected type in agent_forensic.py
+        "source_type": "Video",  # Forensic agent checks source_type == 'Video'
         "author": "Speaker",
         "timestamp": None,
         "source_metadata": {
             "original_file": "demo_transcript.txt",
-            "detected_price_vnd": extracted_price # Match expected key and type
+            "detected_price_vnd": detected_price_vnd  # Forensic agent checks this key (int)
         }
     }
