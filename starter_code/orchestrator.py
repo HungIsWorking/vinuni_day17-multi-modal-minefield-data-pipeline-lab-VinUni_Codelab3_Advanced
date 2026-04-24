@@ -35,14 +35,40 @@ def main():
     output_path = os.path.join(os.path.dirname(SCRIPT_DIR), "processed_knowledge_base.json")
     # ----------------------------------------------
 
-    # TODO: Call each processing function (extract_pdf_data, clean_transcript, etc.)
-    # TODO: Run quality gates (run_quality_gate) before adding to final_kb
-    # TODO: Save final_kb to output_path using json.dump
+    # --- Task: Call each processing function and run quality gates ---
     
-    # Example:
-    # doc = extract_pdf_data(pdf_path)
-    # if doc and run_quality_gate(doc):
-    #     final_kb.append(doc)
+    # 1. Process PDF
+    pdf_doc = extract_pdf_data(pdf_path)
+    if pdf_doc and run_quality_gate(pdf_doc):
+        final_kb.append(pdf_doc)
+
+    # 2. Process Transcript
+    trans_doc = clean_transcript(trans_path)
+    if trans_doc and run_quality_gate(trans_doc):
+        final_kb.append(trans_doc)
+
+    # 3. Process HTML
+    html_docs = parse_html_catalog(html_path)
+    if isinstance(html_docs, list):
+        for doc in html_docs:
+            if doc and run_quality_gate(doc):
+                final_kb.append(doc)
+
+    # 4. Process CSV
+    csv_docs = process_sales_csv(csv_path)
+    if isinstance(csv_docs, list):
+        for doc in csv_docs:
+            if doc and run_quality_gate(doc):
+                final_kb.append(doc)
+
+    # 5. Process Legacy Code
+    code_doc = extract_logic_from_code(code_path)
+    if code_doc and run_quality_gate(code_doc):
+        final_kb.append(code_doc)
+
+    # --- Task: Save final_kb to output_path ---
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(final_kb, f, indent=4, ensure_ascii=False)
 
     end_time = time.time()
     print(f"Pipeline finished in {end_time - start_time:.2f} seconds.")
