@@ -1,9 +1,9 @@
 [
     {
         "document_id": "pdf-doc-001",
-        "content": "Title: Purchase Order 2182354\n\nMain Topics: Routine Maintenance, General Maintenance Call, Latch Repair\n\nTables: [Item #, Description, U/M, Unit Price, Quantity, Total]",
+        "content": "Title: Purchase Order\n\nMain Topics: Purchase Order Details, Sender Information, Recipient Information, Order Line Items, Specific Instructions and Notes, Contact Information, Terms and Conditions.\n\nTables: [{\"headers\": [\"Ln\", \"Item #\", \"Description\", \"Date Req.\", \"Time\", \"Quantity\", \"U/M\", \"Unit Price\", \"Total\", \"Original PO\"], \"rows\": [{\"Ln\": \"1\", \"Item #\": \"7T-GMC1\", \"Description\": \"General Maintenance Call\", \"Date Req.\": \"11/4/2023\", \"Time\": \"10:33:00\", \"Quantity\": \"1.00\", \"U/M\": \"MD\", \"Unit Price\": \"50.897\", \"Total\": \"50.90\", \"Original PO\": \"\"}, {\"Ln\": \"2\", \"Item #\": \"7T-DUA1\", \"Description\": \"Mileage outside DUA\", \"Date Req.\": \"11/4/2023\", \"Time\": \"10:33:00\", \"Quantity\": \"1.00\", \"U/M\": \"KM\", \"Unit Price\": \".951\", \"Total\": \".95\", \"Original PO\": \"\"}]}]",
         "source_type": "PDF",
-        "author": "Unknown",
+        "author": "SNC-LAVALIN O&M Inc.",
         "timestamp": null,
         "source_metadata": {
             "original_file": "lecture_notes.pdf"
@@ -11,7 +11,7 @@
     },
     {
         "document_id": "transcript-doc-001",
-        "content": "[Speaker 1]: Chào mừng các bạn đến với buổi học hôm nay về Data Pipeline Engineering. [Music starts] [Speaker 1]: Hôm nay chúng ta sẽ nói về việc xử lý dữ liệu phi cấu trúc, ví dụ như PDF và Video. [Speaker 1]: Một vấn đề lớn là Semantic Drift. Các bạn có biết không? [Speaker 2]: Dạ em có nghe qua, nhưng nó có liên quan gì đến Zillow không ạ? [Speaker 1]: Có chứ! Zillow là ví dụ điển hình của việc mô hình bị hỏng do dữ liệu đầu vào thay đổi. [Speaker 1]: Đừng để mô hình của bạn trở thành 'rác vào, rác ra'. [Speaker 1]: À, một lưu ý nhỏ cho bài tập: Giá của sản phẩm VinAI Pro là năm trăm nghìn VND. Nhớ nhé, 500,000 VND. [Speaker 1]: [Music ends] [Speaker 1]: Bây giờ chúng ta hãy bắt đầu thực hành.",
+        "content": "[Speaker 1]: Chào mừng các bạn đến với buổi học hôm nay về Data Pipeline Engineering. [Speaker 1]: Hôm nay chúng ta sẽ nói về việc xử lý dữ liệu phi cấu trúc, ví dụ như PDF và Video. [Speaker 1]: Một vấn đề lớn là Semantic Drift. Các bạn có biết không? [Speaker 2]: Dạ em có nghe qua, nhưng nó có liên quan gì đến Zillow không ạ? [Speaker 1]: Có chứ! Zillow là ví dụ điển hình của việc mô hình bị hỏng do dữ liệu đầu vào thay đổi. [Speaker 1]: Đừng để mô hình của bạn trở thành 'rác vào, rác ra'. [Speaker 1]: À, một lưu ý nhỏ cho bài tập: Giá của sản phẩm VinAI Pro là năm trăm nghìn VND. Nhớ nhé, 500,000 VND. [Speaker 1]: [Speaker 1]: Bây giờ chúng ta hãy bắt đầu thực hành.",
         "source_type": "Video",
         "author": "Speaker",
         "timestamp": null,
