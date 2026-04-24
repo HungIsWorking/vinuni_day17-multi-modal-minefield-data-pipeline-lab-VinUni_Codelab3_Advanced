@@ -11,8 +11,8 @@ def clean_transcript(file_path):
         text = f.read()
     # ------------------------------------------
     
-    # TODO: Remove noise tokens like [Music], [inaudible], [Laughter]
-    text = re.sub(r'\[(?:Music|inaudible|Laughter)\]', '', text, flags=re.IGNORECASE)
+    # TODO: Remove noise tokens like [Music starts], [inaudible], [Laughter]
+    text = re.sub(r'\[(?:Music.*?|inaudible|Laughter)\]', '', text, flags=re.IGNORECASE)
     
     # TODO: Strip timestamps [00:00:00]
     text = re.sub(r'\[\d{2}:\d{2}:\d{2}\]', '', text)
@@ -22,17 +22,17 @@ def clean_transcript(file_path):
     
     # TODO: Find the price mentioned in Vietnamese words ("năm trăm nghìn")
     price_match = re.search(r'năm trăm nghìn', text, re.IGNORECASE)
-    extracted_price = "500000" if price_match else None
+    extracted_price = 500000 if price_match else 0
     
     # TODO: Return a cleaned dictionary for the UnifiedDocument schema.
     return {
         "document_id": "transcript-doc-001",
         "content": text,
-        "source_type": "Transcript",
+        "source_type": "Video", # Match expected type in agent_forensic.py
         "author": "Speaker",
         "timestamp": None,
         "source_metadata": {
             "original_file": "demo_transcript.txt",
-            "extracted_price": extracted_price
+            "detected_price_vnd": extracted_price # Match expected key and type
         }
     }
